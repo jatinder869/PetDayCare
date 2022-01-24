@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block header %}
+<link href="{{ url_for('static',filename='css/manager/main.css') }}" rel="stylesheet">
+        <script src="{{ url_for('static',filename='js/manager/viewbookings.js') }}" ></script>
+
+{% endblock %}
+
+{% block content %}
+
+<h3>Store: </h3><h5>{{store.street}} , {{store.city.name.capitalize()}}</h5>
+
+    <div class="row-flex" id="head-btns">
+
+        {%  if active %}
+        <a href="/bookings">Today's</a>
+        <a href="/bookings/all" class="active">All bookings</a>
+
+        {%  else %}
+        <a href="/bookings" class="active" >Today's</a>
+        <a href="/bookings/all" >All bookings</a>
+
+        {%  endif %}
+    </div>
+    <table>
+    <tr>
+        <th>Customer Name</th>
+        <th>Pet Type</th>
+        <th>Pet Name</th>
+        <th>Start time</th>
+        <th>End time</th>
+        <th>Date</th>
+        <th>Customer Phone No.</th>
+        <th>Special Instructions</th>
+    </tr>
+        {%  for booking in bookings %}
+    <tr>
+        <td>{{booking.name}}</td>
+        <td>{{ booking.pet.type }}</td>
+        <td>{{ booking.pet.name }}</td>
+        <td>{{ booking.startTime }}</td>
+        <td>{{ booking.endTime }}</td>
+        <td>{{ booking.bookingDate }}</td>
+
+        <td>{{ booking.phone }}</td>
+        <td>{{booking.instruction}}</td>
+    </tr>
+        {% endfor %}
+
+    </table>
+{% endblock %}

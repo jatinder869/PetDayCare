@@ -1,0 +1,40 @@
+#formlogin {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+#formlogin form {
+  width: 50%;
+}
+
+#formfooter {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+#form body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#form * {
+  box-sizing: border-box;
+}
+
+legend {
+  padding: 5px;
+  text-align: center;
+}
+
+.form-group {
+  color: #30799B;
+  padding: 5px;
+}
+
+.form-check {
+  color: #11557C;
+}
+
+/*# sourceMappingURL=login.css.map */
+
+/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,235 @@
+{% extends "layout.html" %}
+{% block header %}
+
+<script src="{{ url_for('static',filename='js/home/autofill_cities.js') }}" ></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+              body {background: #E5E5E5; }
+
+    </style>
+          <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+          <link href="{{ url_for('static',filename='css/home/main.css') }}" rel="stylesheet">
+          <link href="{{ url_for('static',filename='css/home/styles.css') }}" rel="stylesheet">
+
+{% endblock %}
+
+
+{%block content %}
+
+<!--<form action="/stores" method="get">-->
+<!--    <input type="text" id="city-input" name="city" required>-->
+<!--    <input type="submit">-->
+<!--</form>-->
+<!--</form>-->
+
+
+
+<!--          <body>-->
+<!--            <div class=e0_3><div  class="e1_2"></div><div  class="e1_3"></div><span  class="e3_3">Experience pet-->
+<!--store</span><span  class="e3_6">Second home of your pet</span></div>-->
+<!--          </body>-->
+
+
+
+<!-- <script-->
+<!--         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_4tWM677HKc0NhVDTEikgyHgKdXt_Koo&callback=initAutocomplete&libraries=places&v=weekly"-->
+<!--      async-->
+<!--    ></script>-->
+
+
+<section id="b1">
+	<div class="textb1" >
+
+		<h1>PET DAY CARE</h1>
+
+         <form action="/stores"  method="get">
+             <input type="text" id="city-input" name="city" placeholder="Enter city" required>
+             <button type="submit"><i class="fa fa-search"></i> </button>
+         </form>
+
+        <div class="b1-btn">
+            <a href="#features"> <span></span> FEATURES</a>
+            <a href="#reviews"><span></span> REVIEWS</a>
+        </div>
+
+	</div>
+
+	<div class="home-div" id="home-search-box">
+
+
+</div>
+</section>
+
+
+
+
+<section id="features">
+
+	<div class="title">
+		<p>FEATURES</p>
+		<h1>Why we are the right choice for your pet </h1>
+	</div>
+	<div class="features-box ">
+		<div class="feature">
+			<div class="feature-desc">
+			<h1>Friendly Staff</h1>
+				<div class="feature-discriptions">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+			</div>
+			<div class="feature-img">
+				<img src="{{ url_for("static",filename="images/home/work1.jpeg") }}">
+			</div>
+		</div>
+		<div class="feature">
+			<div class="feature-desc">
+			<h1>Friendly Staff</h1>
+				<div class="feature-discriptions">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+			</div>
+			<div class="feature-img">
+				<img src="{{ url_for("static",filename="images/home/work1.jpeg") }}">
+			</div>		</div>
+		<div class="feature">
+			<div class="feature-desc">
+			<h1>Friendly Staff</h1>
+				<div class="feature-discriptions">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+			</div>
+			<div class="feature-img">
+				<img src="{{ url_for("static",filename="images/home/work1.jpeg") }}">
+			</div>
+
+		</div>
+		<!-- <h1>choose your own subscription model</h1>
+			<div class="feature-discriptions">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+		</div>
+		<h1>many location across the town</h1>
+			<div class="feature-discriptions">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+		</div> -->
+
+
+		<div class=feature-img>
+		</div>
+	</div>
+</section>
+
+
+<section id="services">
+	<div class="title">
+		<p>SERVICES</p>
+		<h1>WHAT WE OFFER </h1>
+	</div>
+	<div class="sb">
+		<div class="s1">
+				<img src="{{ url_for("static",filename="images/home/bath.jpeg") }}">
+			<div class="d1">
+				<h3>PET BATH</h3>
+				<hr>
+				<p>
+					Profesionals to give pet bath.
+				</p>
+			</div>
+		</div>
+		<div class="s1">
+				<img src="{{ url_for("static",filename="images/home/vaccine.jpeg") }}">
+			<div class="d1">
+				<h3>VACCINE</h3>
+				<hr>
+				<p>
+					We have doctors for routine checkups and to provide vaccine.
+				</p>
+			</div>
+		</div>
+		<div class="s1">
+				<img src="{{ url_for("static",filename="images/home/walk.jpeg") }}">
+			<div class="d1">
+				<h3>PET WALK</h3>
+				<hr>
+				<p>
+					Our associate take your pets to walk during there visit.
+
+				</p>
+			</div>
+		</div>
+		<div class="s1">
+				<img src="{{ url_for("static",filename="images/home/sleep4.jpeg") }}">
+			<div class="d1">
+				<h3>REST STATION</h3>
+				<hr>
+				<p>
+					Rest stations where your pet can rest with all the facilities.
+				</p>
+			</div>
+		</div>
+
+	</div>
+
+</section>
+
+<section id="reviews">
+	<div class="text">
+		<h1>REVIEWS</h1>
+	</div>
+	<div class="row">
+		<div class="collom">
+			<div class="info">
+				<h3>Hannan Morrison</h3>
+				<small>@hannanmorrison111</small>
+			</div>
+			<p>Second family for my Buddy</p>
+		</div>
+		<div class="collom">
+			<div class="info">
+				<h3>William Potter</h3>
+				<small>@williamootter21</small>
+			</div>
+			<p>VEasy to use interface for emergency bookings</p>
+		</div>
+		<div class="collom">
+			<div class="info">
+				<h3>Roberto Handreson</h3>
+				<small>@robertohendreson20</small>
+			</div>
+			<p>Excellent customer service </p>
+		</div>
+	</div>
+
+</section>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_4tWM677HKc0NhVDTEikgyHgKdXt_Koo&callback=initAutocomplete&libraries=places&v=weekly" async></script>
+{% endblock %}
+

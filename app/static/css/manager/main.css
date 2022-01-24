@@ -1,0 +1,51 @@
+#head-btns{
+    justify-content:center;
+}
+#head-btns a{
+    padding:10px;
+    margin:4px;
+    background-color:white;
+    border-radius:10px;
+    text-decoration:none;
+    border:1px solid black;
+}
+
+.active{
+  background-color:black !important;
+
+    color:white !important;
+}
+
+#head-btns a:hover{
+    background-color:black;
+
+    color:white;
+
+}
+
+main {
+  padding: 10px;
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+}
+
+td {
+  background-color: pink;
+}
+
+table, tr, th, td {
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=main.css.map */

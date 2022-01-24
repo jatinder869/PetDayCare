@@ -1,0 +1,37 @@
+{% extends "profile_layout.html" %}
+
+{% block main_profile %}
+<div class="row-flex" id="subscription-header">
+    <h2>Subscription</h2>
+    <div class="subb">
+    {% if not check_sub %}
+    <a class="btn btn-outline-info" href="/profile/addsubscription">Add Subscription</a>
+    {% else %}
+    <a class="btn btn-outline-info" href="/profile/addsubscription">Change Subscription</a>
+    {% endif %}
+    </div>
+
+</div>
+<div id="user-subscription-list">
+    {% if not check_sub %}
+
+    <h2>No subcription Active</h2>
+    {% else %}
+
+    <div class="row-flex">
+        <div class="name">
+            <h3>Your Plan</h3><br>
+            <h4>Name:</h4><p>{{subscription.name}}<p>
+            <h4>Description: </h4>
+            <p>{{ subscription.description }}</p>
+            <div class="time">
+            <h5>Start Date:</h5>
+    {{ customer.subscriptionStartDay}}
+            <h5>End Date:</h5>
+    {{ customer.subscriptionEndDay }}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

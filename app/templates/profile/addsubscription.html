@@ -1,0 +1,39 @@
+{% extends "profile_layout.html" %}
+
+
+{% block main_profile %}
+
+<div class="all-subs">
+{% for sub in subscriptions %}
+
+    <div class="sub">
+        <div class="sub-name"> {{ sub.name }}</div>
+            <div class="sub-description"><p>{{ sub.description }}</p></div>
+        <div class="sub-duration">Duration: {{ sub.durationInWeeks }} weeks</div>
+            <div class="sub-duration">Price: ${{ sub.priceInDollars }} </div>
+
+        <div class="sub-form-div hidden">
+            <form action="/profile/addsubscription" class="sub-form" method="post">
+
+            {{ form.sub_id(value=sub.id) }}
+            {{ form.creditcard.label }}
+                    {% if form.creditcard.errors %}
+                        {{ form.creditcard(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.creditcard.errors %}
+                                <h1 class="absolute">Error{{ error }}</h1>
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.creditcard(class="form-control form-control-lg credit-input") }}
+                    {% endif %}
+
+                {{ form.submit(class="btn btn-outline-info") }}
+            </form>
+
+        </div>
+    </div>
+{%  endfor %}
+</div>
+{%  endblock %}

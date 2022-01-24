@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block header %}
+
+<link href="{{ url_for('static',filename='css/about/about.css') }}" rel="stylesheet">
+
+{% endblock %}
+{% block content %}
+
+<div class="background">
+<div class ="about-alpha">
+    <h1>AlphaTech</h1>
+    <h2>Pet Day care</h2>
+    <div class="container-alpha">
+        <div class="imgg">
+        <img src="{{ url_for('static',filename='images/alpha.jfif' )}}" class="image-alpha" >
+        </div>
+            <div class="overlay">
+            <div class="text">Creators:<br>
+                Kartik<br>
+                Jatinder<br>
+                Rabnoor<br>
+                Yuvraj<br>
+                Yugant</div>
+        </div>
+    </div>
+    <p>
+The Pet Day care we plan to make holds great potential to attract a lot of people and can impact daily lives of people. Through a survey amongst friends, we have realised that people are really attached to their pets and try to provide them with a healthy and comfortable lifestyle. Also, as they have to carry out their daily responsibilities and leave their pets at home, they are forced to use costly appliances like pet cameras and have to pet-proof their furniture or sometimes hire a pet sitter.Although Pet Day cares exist, people are not always able to access them as most of them require the customers to physically go to the locations. By using our services people can have easy access to pet daycares and book appointments from their own computers. Pet daycare owners would also benefit a lot from a product like this, as it would increase the number of people using their services and hence  increase the revenue generated.
+    </p>
+
+</div>
+</div>
+
+{% endblock %}

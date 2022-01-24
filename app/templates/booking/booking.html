@@ -1,0 +1,168 @@
+{% extends "layout.html" %}
+{% block header %}
+<script src="{{ url_for('static',filename='js/booking/bookingform_helper.js') }}" ></script>
+              <link href="{{ url_for('static',filename='css/booking/booking.css') }}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="/bookform">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4"><h2>Booking</h2></legend><br>
+                <div class="form-group">
+                    <h3>Profile Information</h3><br>
+                    {{ form.name.label(class="form-control-label") }}
+                    {% if form.name.errors %}
+                        {{ form.name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.name(class="form-control form-control-lg",value=user.get_name().capitalize()) }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg",value=user.get_email()) }}
+                    {% endif %}
+                </div>
+
+               <div class="form-group">
+                    {{ form.phone.label(class="form-control-label") }}
+                    {% if form.phone.errors %}
+                        {{ form.phone(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.phone.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.phone(class="form-control form-control-lg",value=user.get_phone()) }}
+                    {% endif %}
+                </div>
+               <div class="form-group">
+                    <br><br><h3>Store Information</h3><br>
+
+                    {{ form.city.label(class="form-control-label") }}
+                    {% if form.city.errors %}
+                        {{ form.city(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.city.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.city(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+               <div class="form-group">
+                   <label class="form-control-label">Select Store:</label>
+                   {% if store %}
+                    <select class="form-control form-control-lg" id="store" name="store" selected="{{ store }}"required></select>
+                   {% else %}
+                   <select class="form-control form-control-lg" id="store" name="store" selected="-1" required></select>
+                    {% endif %}
+                </div>
+
+            <div class="form-group">
+                    {{ form.startTime.label(class="form-control-label") }}
+                    {% if form.startTime.errors %}
+                        {{ form.startTime(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.startTime(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            <div class="form-group">
+                    {{ form.endtime.label(class="form-control-label") }}
+                    {% if form.endtime.errors %}
+                        {{ form.endtime(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.endtime.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.endtime(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            <div class="form-group">
+                    {{ form.bookingDate.label(class="form-control-label") }}
+                    {% if form.bookingDate.errors %}
+                        {{ form.bookingDate(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.bookingDate.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.bookingDate(class="form-control form-control-lg",type="date") }}
+                    {% endif %}
+                </div>
+
+              <div class="form-group">
+                    <br><br><h3>Pet Information</h3><br>
+
+                    {{ form.pet.label(class="form-control-label") }}
+                    <a  href="/profile/addpet?rd={{ url }}" id="add-pet-btn"><i class="fa fa-plus"></i>  Add Pet</a>
+                    {% if form.pet.errors %}
+                        {{ form.pet(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.pet.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+
+                        {{ form.pet(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            <div class="form-group">
+                    {{ form.instruction.label(class="form-control-label") }}
+                    {% if form.instruction.errors %}
+                        {{ form.instruction(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.instruction.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.instruction(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            {% if not user.has_subscription()  %}
+                <div class="form-group">
+                <label class="form-control-label">Select Card:</label>
+                <select class="form-control form-control-lg" id="card" name="card" selected="{{ store }}"required>
+
+                {% for card in cards %}
+
+                    <option value="{{ card[0] }}">{{ card[1] }}</option>
+
+                {% endfor %}
+                </select>
+                </div>
+            {% endif %}
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+          </form>
+    </div>
+    {% endblock content %}

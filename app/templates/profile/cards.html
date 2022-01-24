@@ -1,0 +1,29 @@
+{% extends "profile_layout.html" %}
+
+
+ {% block main_profile %}
+<div class="row-flex" id="pet-header">
+    <h2>Cards</h2>
+    <a class="btn btn-outline-info" href="/profile/addcard">Add Card</a>
+</div>
+
+<div id="user-pets-list">
+    {% if cards|length ==0 %}
+    <h2>No Card Added yet</h2>
+    {% else %}
+    {% for card in cards %}
+        <div class="card-box">
+            <div class="name"><h3>Name:</h3>{{ card.name }}</div>
+            <div class="cardnum"><h3>Card number: </h3>{{ card.getNumber()  }}</div>
+            <div class="expiry"><h3>Expiry Date</h3>{{ card.getExpiry() }}</div>
+        </div>
+
+    {% endfor %}
+
+    {% endif %}
+</div>
+
+
+
+
+{% endblock %}

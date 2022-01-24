@@ -1,0 +1,27 @@
+{% extends "profile_layout.html" %}
+
+{% block main_profile %}
+
+<div class="row-flex" id="pet-header">
+    <h2>Pets</h2>
+    <a class="btn btn-outline-info" href="/profile/addpet">Add Pet</a>
+</div>
+
+<div id="user-pets-list">
+    {% if pets|length ==0 %}
+    <h2>No Pet defined yet</h2>
+    {% else %}
+    <div id ="all-pets">
+    {% for pet in pets %}
+        <div class="pet-box">
+            <div class="name"><h3><b>{{ pet.name }}</b></h3></div>
+            <div class="breed"><p>{{pet.type}}</div>
+            <div class="notes">{{pet.instruction}}</div>
+        </div>
+        {% endfor %}
+
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

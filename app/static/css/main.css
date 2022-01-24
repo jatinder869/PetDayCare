@@ -1,0 +1,64 @@
+header{
+    position: relative;
+}
+nav{
+ background-color: #355c80;
+    position: relative;
+}
+
+body,html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+main{
+}
+.row{
+    margin: 0px !important;
+}
+
+.row-flex{
+    display: flex;
+    flex-direction: row;
+}
+.hidden{
+    display: none;
+}
+
+.column-center-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+footer {
+  display: flex;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0,0,100,0.1);
+  color: #30799B;
+    margin-top: auto;
+    border-top:2px solid cornflowerblue;
+
+}
+
+footer >div{
+	flex:1;
+	display: flex;
+	justify-content: center;
+	padding-top: 10px;
+	margin: 20px;
+	text-align: center;
+
+
+}
+footer .contact ul{
+	list-style-type: none;
+	justify-content: center;
+}
+footer .contact ul li{
+	margin: 0 10px;
+}

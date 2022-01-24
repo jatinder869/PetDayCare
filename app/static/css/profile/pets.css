@@ -1,0 +1,17 @@
+
+#addpetform{
+    margin-left: 3vw;
+}
+#pet-header a{
+    margin-left: auto;
+}
+#user-pets-list{
+    margin: 10px;
+    background-color: lightblue;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#user-pets-list div{
+    border: 2px solid white;
+}

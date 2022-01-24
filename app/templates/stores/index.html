@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block header %}
+
+    <script src="{{ url_for('static',filename='js/home/autofill_cities.js') }}" ></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
+
+              <link href="{{ url_for('static',filename='css/stores/style.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static',filename='js/stores/loadstoremap.js') }}" ></script>
+    <script src="{{ url_for('static',filename='js/stores/loadform.js') }}" ></script>
+
+{% endblock %}
+
+
+{%block content %}
+
+
+    <map-coord class="hidden" id="coords">
+        {% for store in stores %}
+            <store class="store-coord">
+            <lat>{{ store.lat }}</lat><lang>{{ store.lng }}</lang>
+            </store>
+        {% endfor %}
+
+    </map-coord>
+    <div id="main-container-store">
+        <div id="all-stores">
+{% for store in stores %}
+
+
+            <div class="store-listing" store-id="{{ store.id }}">
+            <form action="/bookform" method="get" id="form{{ store.id }}">
+    <input type="hidden" value="{{ store.city.name }}" name="city">
+    <input type="hidden" value="{{ store.id }}" name="store">
+    </form>
+                <div class="img-box">
+
+            <button class="details-btn"><i class="fa fa-info"></i> </button>
+
+            <button class="fav-btn"><i class="fa fa-heart"></i> </button>
+
+            </div>
+                <div class="store-address">
+
+                <p class="store-street">{{ store.street }} </p>
+                <p class="store-city" name="city" value>{{ store.city.name.capitalize() }}, {{ store.province }}
+                </p>
+                <div class="row-flex">
+                <p class="store-timings">Store timings: {{ store.openTime }} - {{ store.closeTime }}</p>
+                            <p class="store-review">4.1 <i class="fa fa-star"></i> </p>
+
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+        </div>
+
+        <div id="store-map">
+
+        </div>
+    </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_4tWM677HKc0NhVDTEikgyHgKdXt_Koo&callback=initMap&libraries=&v=weekly" async ></script>
+
+{% endblock  %}
+
+

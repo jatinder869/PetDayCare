@@ -1,0 +1,63 @@
+INSERT INTO city (name) VALUES (
+  'saskatoon'
+); 
+
+INSERT INTO city (name) VALUES (
+  'calgary'
+); 
+
+INSERT INTO city (name) VALUES (
+  'edmonton'
+); 
+
+
+INSERT INTO user (password,email,phone,full_name,address,status) VALUES (
+  'sha256$MvuKvbMW$68853e3cf3a0b644dc23e5ab82c1804af36efeea22481266ff3b33e77d5e16d8',
+  'pappumanager@gmail.com',
+  '6399985807',
+  'Pappu Gandhi',
+  '704 8 St E',
+  'Manager'
+); 
+
+
+
+INSERT INTO store (street,city_id,province,rating,openTime,closeTime,lat,lng) VALUES (
+  '6655 178 St NW',
+  '3',
+  'Alberta',
+  '66',
+  '0700',
+  '1800',
+  '53.50175',
+  '-113.62847'
+); 
+
+INSERT INTO store (street,city_id,province,rating,openTime,closeTime) VALUES (
+  '204 25 St W',
+  '2',
+  'Saskatchewan',
+  '90',
+  '0700',
+  '1800'
+);
+
+INSERT INTO store (street,city_id,province,rating,openTime,closeTime) VALUES (
+  '232 Preston Ave S',
+  '2',
+  'Saskatchewan',
+  '77',
+  '0700',
+  '1800'
+);
+
+INSERT INTO store (street,city_id,province,rating,openTime,closeTime,lat,lng) VALUES (
+  '29 Clark Crescent',
+  '1',
+  'Saskatchewan',
+  '80',
+  '0700',
+  '1800',
+  '52.11240',
+  '-106.60587'
+); 

@@ -1,0 +1,24 @@
+.content-section {
+  justify-content: center;
+  width: 60%;
+  margin: auto;
+  padding: 100px 150px;
+}
+
+#add-pet-btn {
+  margin-left: 20px;
+}
+
+h2 {
+  color: #30799B;
+}
+
+h3 {
+  color: #30799B;
+}
+
+.form-group {
+  width: 100%;
+}
+
+/*# sourceMappingURL=booking.css.map */

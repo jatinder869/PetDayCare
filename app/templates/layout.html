@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+    {% block header %}
+
+    {% endblock %}
+
+    {% if title %}
+
+        <title>Flask Blog - {{ title }}</title>
+
+    {% else %}
+
+        <title>Flask Blog</title>
+
+
+    {% endif %}
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel ">
+        <div class="container">
+            <a class="navbar-brand mr-4" href="/">PetCare</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+                    aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            {% if session["status"]!="Manager" %}
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="{{ url_for('home_bp.home') }}">Home</a>
+                    <a class="nav-item nav-link" href="/about">About</a>
+                </div>
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="{{ url_for('home_bp.bookForm') }}">Book an appointment</a>
+
+                    {% if session["logged_in"] %}
+                        <a class="nav-item nav-link" href="{{ url_for('profile_bp.dashboard') }}">My Profile</a>
+                        <a class="nav-item nav-link" href="{{ url_for('login_bp.logout') }}">Logout</a>
+
+                    {% else %}
+
+                        <a class="nav-item nav-link" href="{{ url_for('login_bp.login') }}">Login</a>
+
+                    {% endif %}
+
+                </div>
+            {% else %}
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{{ url_for('login_bp.logout') }}">Logout</a>
+                <a class="nav-item nav-link" href="{{ url_for("manager_bp.viewBookings") }}">View Bookings</a>
+
+
+            </div>
+            {% endif %}
+            </div>
+            </div>
+    </nav>
+</header>
+<main role="main" class="">
+    <div class="row">
+        <div class="col-md-8">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category,message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+
+    </div>
+</main>
+
+<footer>
+  <div class="timing">
+  	<div>
+  	<h1>Opening Hours</h1>
+  	<h5>monday to friday-7am to 11pm</h5>
+  	<h5>saturday-sunday-9am to 9pm</h5>
+  </div>
+  </div>
+
+  <div class="contact">
+  	<div>
+  	<h1>CONTACT</h1>
+        <p>+1 (639) 321-0123</p>
+  	<ul class="row-flex">
+  		<li><a href="#"> <i class="fa fa-facebook"></i></a></li>
+  		<li><a href="#"> <i class="fa fa-twitter"></i></a></li>
+  		<li><a href="#"> <i class="fa fa-instagram"></i></a></li>
+  		<li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
+  	</ul>
+     </div>
+  </div>
+      <div class="touch">
+        <div>
+        <h1>GET IN TOUCH</h1>
+        <h5>contatpetdaycare@abc.com</h5>
+      </div>
+  </div>
+
+
+</footer>
+
+<!-- Optional JavaScript -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

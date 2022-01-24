@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block header %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/profile/profile_main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='css/profile/pets.css') }}">
+<link href="{{ url_for('static',filename='css/profile/subscription.css') }}" rel="stylesheet">
+<script src="{{ url_for('static',filename='js/profile/sub_helper.js') }}" ></script>
+        <script src="{{ url_for('static',filename='js/profile/update_user.js') }}" ></script>
+
+<link href="{{ url_for('static',filename='css/subscription/subscription.css') }}" rel="stylesheet">
+<link href="{{ url_for('static',filename='css/pets/pets.css') }}" rel="stylesheet">
+<link href="{{ url_for('static',filename='css/dashboard/dashboard.css') }}" rel="stylesheet">
+<link href="{{ url_for('static',filename='css/addpets/addpets.css') }}" rel="stylesheet">
+<link href="{{ url_for('static',filename='css/cards/cards.css') }}" rel="stylesheet">
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="row-flex" style="height: 100%">
+
+     <div id="profile-sidebar" style="justify-content: center">
+         <ul class="dashboard">
+             <li id="p-dashboard" ><a href="/profile/dashboard">Dashboard </a> </li>
+             <li id="p-pets" ><a href="/profile/pets">Pets </a> </li>
+             <li id="p-cards" ><a href="/profile/cards">Cards </a> </li>
+             <li id="p-subscription" ><a href="/profile/subscription">Subscription </a> </li>
+
+         </ul>
+     </div>
+
+    <div class="row-flex" style="justify-content: center;width: 100%">
+        <div style="width: 100%;margin-left: 20px;margin-top: 50px">
+                {% block main_profile %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+
+
+     </div>
+{% endblock %}
